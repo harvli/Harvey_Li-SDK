@@ -1,3 +1,5 @@
+import fetch from "isomorphic-unfetch";
+
 type Setup = {
   apiKey?: string; // optional API key to access other endpoints
   baseUrl? : string; // optional since we have a default URL
@@ -12,8 +14,9 @@ export abstract class Base {
     this.baseUrl = setup.baseUrl || "https://the-one-api.dev/v2/"
   }
 
+  // async function containing url and headers
   protected invoke<T>(endpoint: string, options?: RequestInit): Promise<T> {
-    const url = ``;
+    const url = `${this.baseUrl}${endpoint}`;
     const headers = {
       "Content-Type": "application/json",
       "api-key": this.apikey
@@ -24,6 +27,7 @@ export abstract class Base {
       headers
     }
 
+    // return result of invocation of fetch call
     return fetch(url, setup).then((response) => {
       if (response.ok) {
         return response.json();

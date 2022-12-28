@@ -3,8 +3,3 @@ export declare type Read = {
   title: string;
   body: string;
 }
-
-export declare type NewRead = {
-  title: string;
-  body: string;
-}
