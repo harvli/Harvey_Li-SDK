@@ -1,4 +1,4 @@
-import Typicode from '../../Harvey-SDK'
+import Typicode from '@harvli/harvey_li-sdk'
 
 const client = new Typicode({});
 
